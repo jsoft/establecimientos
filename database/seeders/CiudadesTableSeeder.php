@@ -29,7 +29,7 @@ class CiudadesTableSeeder extends Seeder
 
         // Crear localidades para Bogotá
         $localidades = [
-            ['nombre' => 'Usaquén', 'ciudad_id'],
+            ['nombre' => 'Usaquén', 'ciudad_id' => $bogotaId],
             ['nombre' => 'Chapinero', 'ciudad_id' => $bogotaId],
             ['nombre' => 'Santa Fe', 'ciudad_id' => $bogotaId],
             ['nombre' => 'San Cristóbal', 'ciudad_id' => $bogotaId],
