@@ -28,6 +28,7 @@ class CiudadesTableSeeder extends Seeder
         $bogotaId = DB::table('ciudades')->where('nombre', 'Bogotá')->first()->id;
 
         // Crear localidades para Bogotá
+
         $localidades = [
             ['nombre' => 'Usaquén', 'ciudad_id' => $bogotaId],
             ['nombre' => 'Chapinero', 'ciudad_id' => $bogotaId],
@@ -49,60 +50,62 @@ class CiudadesTableSeeder extends Seeder
 
         // Crear barrios para las localidades de Bogotá
         $barrios = [
-            ['nombre' => 'Santa Ana', 'localidad_id' => $localidadesIds[0]], // Usaquén
-            ['nombre' => 'Cedritos', 'localidad_id' => $localidadesIds[0]],
-            ['nombre' => 'La Carolina', 'localidad_id' => $localidadesIds[0]],
-            ['nombre' => 'El Codito', 'localidad_id' => $localidadesIds[0]],
+            ['nombre' => 'Santa Ana',           'ciudad_id' => 1], // Usaquén
+            //['nombre' => 'Cedritos',            'ciudad_id' => $localidadesIds[0]],
+            //['nombre' => 'La Carolina',         'ciudad_id' => $localidadesIds[0]],
+            //['nombre' => 'El Codito',           'ciudad_id' => $localidadesIds[0]],
 
-            ['nombre' => 'El Chicó', 'localidad_id' => $localidadesIds[1]], // Chapinero
-            ['nombre' => 'La Cabrera', 'localidad_id' => $localidadesIds[1]],
-            ['nombre' => 'Los Rosales', 'localidad_id' => $localidadesIds[1]],
-            ['nombre' => 'Marly', 'localidad_id' => $localidadesIds[1]],
+            ['nombre' => 'El Chicó',            'ciudad_id' => 1], // Chapinero
+            //['nombre' => 'La Cabrera',          'ciudad_id' => $localidadesIds[1]],
+            //['nombre' => 'Los Rosales',         'ciudad_id' => $localidadesIds[1]],
+            //['nombre' => 'Marly',               'ciudad_id' => $localidadesIds[1]],
 
-            ['nombre' => 'La Macarena', 'localidad_id' => $localidadesIds[2]], // Santa Fe
-            ['nombre' => 'San Diego', 'localidad_id' => $localidadesIds[2]],
-            ['nombre' => 'Las Aguas', 'localidad_id' => $localidadesIds[2]],
-            ['nombre' => 'Lourdes', 'localidad_id' => $localidadesIds[2]],
+            /*
+            ['nombre' => 'La Macarena', 'ciudad_id' => $localidadesIds[2]], // Santa Fe
+            ['nombre' => 'San Diego', 'ciudad_id' => $localidadesIds[2]],
+            ['nombre' => 'Las Aguas', 'ciudad_id' => $localidadesIds[2]],
+            ['nombre' => 'Lourdes', 'ciudad_id' => $localidadesIds[2]],
 
-            ['nombre' => 'Villa de los Alpes', 'localidad_id' => $localidadesIds[3]], // San Cristóbal
-            ['nombre' => 'San Blas', 'localidad_id' => $localidadesIds[3]],
-            ['nombre' => 'La Gloria', 'localidad_id' => $localidadesIds[3]],
-            ['nombre' => 'Montecarlo', 'localidad_id' => $localidadesIds[3]],
+            ['nombre' => 'Villa de los Alpes', 'ciudad_id' => $localidadesIds[3]], // San Cristóbal
+            ['nombre' => 'San Blas', 'ciudad_id' => $localidadesIds[3]],
+            ['nombre' => 'La Gloria', 'ciudad_id' => $localidadesIds[3]],
+            ['nombre' => 'Montecarlo', 'ciudad_id' => $localidadesIds[3]],
 
-            ['nombre' => 'Rincón de Suba', 'localidad_id' => $localidadesIds[4]], // Suba
-            ['nombre' => 'Niza Norte', 'localidad_id' => $localidadesIds[4]],
-            ['nombre' => 'Lombardía', 'localidad_id' => $localidadesIds[4]],
-            ['nombre' => 'Tuna Baja', 'localidad_id' => $localidadesIds[4]],
+            ['nombre' => 'Rincón de Suba', 'ciudad_id' => $localidadesIds[4]], // Suba
+            ['nombre' => 'Niza Norte', 'ciudad_id' => $localidadesIds[4]],
+            ['nombre' => 'Lombardía', 'ciudad_id' => $localidadesIds[4]],
+            ['nombre' => 'Tuna Baja', 'ciudad_id' => $localidadesIds[4]],
 
-            ['nombre' => 'Boyacá Real', 'localidad_id' => $localidadesIds[5]], // Engativá
-            ['nombre' => 'Minuto de Dios', 'localidad_id' => $localidadesIds[5]],
-            ['nombre' => 'Santa Helenita', 'localidad_id' => $localidadesIds[5]],
-            ['nombre' => 'Normandía', 'localidad_id' => $localidadesIds[5]],
+            ['nombre' => 'Boyacá Real', 'ciudad_id' => $localidadesIds[5]], // Engativá
+            ['nombre' => 'Minuto de Dios', 'ciudad_id' => $localidadesIds[5]],
+            ['nombre' => 'Santa Helenita', 'ciudad_id' => $localidadesIds[5]],
+            ['nombre' => 'Normandía', 'ciudad_id' => $localidadesIds[5]],
 
-            ['nombre' => 'Villemar', 'localidad_id' => $localidadesIds[6]], // Fontibón
-            ['nombre' => 'Capellanía', 'localidad_id' => $localidadesIds[6]],
-            ['nombre' => 'Zona Franca', 'localidad_id' => $localidadesIds[6]],
-            ['nombre' => 'Modelia', 'localidad_id' => $localidadesIds[6]],
+            ['nombre' => 'Villemar', 'ciudad_id' => $localidadesIds[6]], // Fontibón
+            ['nombre' => 'Capellanía', 'ciudad_id' => $localidadesIds[6]],
+            ['nombre' => 'Zona Franca', 'ciudad_id' => $localidadesIds[6]],
+            ['nombre' => 'Modelia', 'ciudad_id' => $localidadesIds[6]],
 
-            ['nombre' => 'Ciudad Kennedy', 'localidad_id' => $localidadesIds[7]], // Kennedy
-            ['nombre' => 'Patio Bonito', 'localidad_id' => $localidadesIds[7]],
-            ['nombre' => 'Castilla', 'localidad_id' => $localidadesIds[7]],
-            ['nombre' => 'Timiza', 'localidad_id' => $localidadesIds[7]],
+            ['nombre' => 'Ciudad Kennedy', 'ciudad_id' => $localidadesIds[7]], // Kennedy
+            ['nombre' => 'Patio Bonito', 'ciudad_id' => $localidadesIds[7]],
+            ['nombre' => 'Castilla', 'ciudad_id' => $localidadesIds[7]],
+            ['nombre' => 'Timiza', 'ciudad_id' => $localidadesIds[7]],
 
-            ['nombre' => 'Bosa Piamonte', 'localidad_id' => $localidadesIds[8]], // Bosa
-            ['nombre' => 'Bosa La Libertad', 'localidad_id' => $localidadesIds[8]],
-            ['nombre' => 'Bosa El Recreo', 'localidad_id' => $localidadesIds[8]],
-            ['nombre' => 'San Bernardino', 'localidad_id' => $localidadesIds[8]],
+            ['nombre' => 'Bosa Piamonte', 'ciudad_id' => $localidadesIds[8]], // Bosa
+            ['nombre' => 'Bosa La Libertad', 'ciudad_id' => $localidadesIds[8]],
+            ['nombre' => 'Bosa El Recreo', 'ciudad_id' => $localidadesIds[8]],
+            ['nombre' => 'San Bernardino', 'ciudad_id' => $localidadesIds[8]],
 
-            ['nombre' => 'La Soledad', 'localidad_id' => $localidadesIds[9]], // Teusaquillo
-            ['nombre' => 'Palermo', 'localidad_id' => $localidadesIds[9]],
-            ['nombre' => 'Quinta Paredes', 'localidad_id' => $localidadesIds[9]],
-            ['nombre' => 'Santa Teresita', 'localidad_id' => $localidadesIds[9]],
+            ['nombre' => 'La Soledad', 'ciudad_id' => $localidadesIds[9]], // Teusaquillo
+            ['nombre' => 'Palermo', 'ciudad_id' => $localidadesIds[9]],
+            ['nombre' => 'Quinta Paredes', 'ciudad_id' => $localidadesIds[9]],
+            ['nombre' => 'Santa Teresita', 'ciudad_id' => $localidadesIds[9]],
 
-            ['nombre' => 'El Tesoro', 'localidad_id' => $localidadesIds[10]], // Ciudad Bolívar
-            ['nombre' => 'Madelena', 'localidad_id' => $localidadesIds[10]],
-            ['nombre' => 'Candelaria La Nueva', 'localidad_id' => $localidadesIds[10]],
-            ['nombre' => 'Meissen', 'localidad_id' => $localidadesIds[10]],
+            ['nombre' => 'El Tesoro', 'ciudad_id' => $localidadesIds[10]], // Ciudad Bolívar
+            ['nombre' => 'Madelena', 'ciudad_id' => $localidadesIds[10]],
+            ['nombre' => 'Candelaria La Nueva', 'ciudad_id' => $localidadesIds[10]],
+            ['nombre' => 'Meissen', 'ciudad_id' => $localidadesIds[10]],
+            */
         ];
 
         DB::table('barrios')->insert($barrios);
