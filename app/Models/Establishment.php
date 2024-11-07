@@ -9,7 +9,7 @@ class Establishment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'city_id', 'nombre'];
+    protected $fillable = ['category_id', 'city_id', 'name'];
 
     public function category()
     {

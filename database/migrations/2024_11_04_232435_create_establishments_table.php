@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('direccion');
+            $table->string('name');
+            $table->string('address');
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->foreignId('locality_id')->constrained('localities')->onDelete('cascade');

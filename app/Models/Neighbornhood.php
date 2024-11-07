@@ -9,5 +9,5 @@ class Neighbornhood extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['name'];
 }
