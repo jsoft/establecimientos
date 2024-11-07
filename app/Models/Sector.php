@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Localidad extends Model
+class Sector extends Model
 {
     use HasFactory;
-    protected $table = 'localidades';
 
+    protected $table = 'sectores';
     protected $fillable = ['nombre', 'ciudad_id'];
 
     public function ciudad()
