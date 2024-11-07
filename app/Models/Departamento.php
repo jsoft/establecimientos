@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Departamento extends Model
 {
     use HasFactory;
-
+    protected $table = 'departamentos';
     protected $fillable = ['nombre'];
 
-    public function establishments()
+    public function ciudades()
     {
-        return $this->hasMany(Establishment::class);
+        return $this->hasMany(Ciudad::class);
     }
-
 }
