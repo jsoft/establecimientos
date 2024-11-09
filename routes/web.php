@@ -1,6 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\CategoryController;
+=======
+<<<<<<< HEAD
+use App\Http\Controllers\CategoryController;
+=======
+use App\Http\Controllers\CategoriaController;
+>>>>>>> 84e8e23e6acf4f5f1ef51443fe0b20871f748b56
+>>>>>>> f092ae2d690990b688d23c2a552ef7c4c7ca6128
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
