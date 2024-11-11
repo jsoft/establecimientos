@@ -10,7 +10,9 @@
 @section('content')
 <div>
     @if (session('success'))
-    <div class="alert alert-success m-3">{{ session('success') }}</div>
+    <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
+            <p class="font-bold">{{ session('success') }}</p>
+    </div>
     @endif
 </div>
 
@@ -56,14 +58,35 @@
             @endforeach
         </tbody>
     </table>
+</div>
+</div>
+<div x-data="modalHandler()">
+    <!-- Botón para abrir el modal, pasando el ID de la categoría -->
+    <button @click="loadModalContent(5)" class="bg-blue-500 text-white px-4 py-2 rounded">Show Categoria</button>
+
+    <!-- Contenedor del modal -->
+    <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
     </div>
 </div>
-<button @click="open = true" class="bg-blue-500 text-white px-4 py-2 rounded">Abrir Modal</button>
-<div x-data="{ open: false }" x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded shadow-lg w-1/3">
-        <h2 class="text-lg font-semibold mb-4">Este es un Modal</h2>
-    </div>
-    <button @click="open = false" class="bg-red-500 text-white px-4 py-2 rounded">Cerrar</button>
-</div>
+
+<script>
+    function modalHandler() {
+        return {
+            open: false,
+            modalContent: '',
+            loadModalContent(id) {
+                axios.get(`/categorias/${id}`)
+                    .then(response => {
+                        this.modalContent = response.data;
+                        this.open = true;
+                    })
+                    .catch(error => {
+                        console.error("Error al cargar el contenido del modal:", error);
+                    });
+            }
+        }
+    }
+</script>
 @endsection
 </x-app-layout>
