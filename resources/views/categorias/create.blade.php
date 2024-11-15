@@ -1,7 +1,5 @@
 <!-- resources/views/categorias/create.blade.php -->
-@extends('layouts.app')
 
-@section('content')
 <div class="flex justify-center items-center">
     <div class="flex-row mt-20 shadow-lg items-center text-center">
             <h1 class="capitalize text-2xl font-bold text-gray-800 leading-tight m-4">Crear Nueva Categoría</h1>
@@ -17,7 +15,9 @@
             <x-primary-button type="submit" class="my-4">
                 Guardar
             </x-primary-button>
+        <x-primary-button x-on:click="open = false" class="my-4">
+         {{ __('Cerrar') }}
+        </x-primary-button>
         </form>
     </div>
 </div>
-@endsection

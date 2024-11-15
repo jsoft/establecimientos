@@ -1,11 +1,7 @@
 <!-- resources/views/categorias/edit.blade.php -->
-@extends('layouts.app')
-
-@section('content')
-<div class="flex justify-center">
-    <div class="flex-row mt-20 shadow-lg items-center text-center">
+<div class="flex justify-center ">
+    <div class="mt-20 shadow-lg items-center text-center">
         <h1 class="capitalize text-2xl font-bold text-gray-800 leading-tight m-4">Editar Categoría</h1>
-        
         <form action="{{ route('categorias.update', $categoria->id) }}" method="POST">
             @csrf
             @method('PUT')
@@ -21,6 +17,8 @@
                 Actualizar
             </x-primary-button>
         </form>
+        <x-primary-button x-on:click="open = false" class="my-4">
+         {{ __('Cerrar') }}
+        </x-primary-button>
     </div>
 </div>
-@endsection

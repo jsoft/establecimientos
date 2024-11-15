@@ -16,16 +16,19 @@
     @endif
 </div>
 
-<div class="flex">
-    <div>
-        <x-primary-button class="my-5 ml-8">
-            <a href="{{ route('categorias.create') }}">Crear Nueva Categoría</a>
-        </x-primary-button>
-
-    </div>
-    <div class="flex-col items-center justify-center mt-20 shadow-lg">
+<div class="flex flex-col">
+                    <div x-data="modalCreate()" class="my-5 mx-5">
+                        <x-primary-button @click="loadModalContent()">
+                            Crear Nueva Categoria
+                        </x-primary-button>
+                            <!-- Contenedor del modal -->
+                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
+                        </div>
+                    </div>
+    <div class="flex-col mt-20 shadow-lg">
         <h1 class="capitalize text-2xl font-bold text-gray-800 leading-tight text-center">Lista de Categorías</h1>
-      <table >
+      <table class="w-full">
         <thead>
             <tr>
                 <th class="px-5 py-3 border-b-2 border-gray-200 text-center">ID</th>
@@ -36,16 +39,28 @@
         <tbody>
             @foreach ($categorias as $categoria)
             <tr>
-                <td class="px-5 py-3 border-b-2 border-gray-200 text-center">{{ $categoria->id }}</td>
-                <td class="px-5 py-3 border-b-2 border-gray-200 text-center">{{ $categoria->nombre }}</td>
-                <td class="border-b-2 px-6 border-gray-200 text-center">
-                    <x-primary-button>
-                        <a href="{{ route('categorias.show', $categoria->id) }}" class="btn btn-info">Ver</a>
-                    </x-primary-button>
-
-                    <x-secondary-button>
-                        <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-warning">Editar</a>
-                    </x-secondary-button>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->id }}</td>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->nombre }}</td>
+                <td class="border-b-2 px-5 py-2 border-gray-200 flex justify-center items-center">
+                    <div x-data="modalHandler()">
+                        <x-primary-button @click="loadModalContent({{ $categoria->id }})">
+                            Ver
+                        </x-primary-button>
+                            <!-- Contenedor del modal -->
+                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
+                        </div>
+                    </div>
+                        
+                    <div x-data="modalEdit()" class="mx-4">
+                        <x-secondary-button @click="loadModalContent({{ $categoria->id }})">
+                            Editar
+                        </x-secondary-button>
+                            <!-- Contenedor del modal -->
+                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
+                        </div>
+                    </div>
                     <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
@@ -60,16 +75,6 @@
     </table>
 </div>
 </div>
-<div x-data="modalHandler()">
-    <!-- Botón para abrir el modal, pasando el ID de la categoría -->
-    <button @click="loadModalContent(5)" class="bg-blue-500 text-white px-4 py-2 rounded">Show Categoria</button>
-
-    <!-- Contenedor del modal -->
-    <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
-        <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
-    </div>
-</div>
-
 <script>
     function modalHandler() {
         return {
@@ -77,6 +82,40 @@
             modalContent: '',
             loadModalContent(id) {
                 axios.get(`/categorias/${id}`)
+                    .then(response => {
+                        this.modalContent = response.data;
+                        this.open = true;
+                    })
+                    .catch(error => {
+                        console.error("Error al cargar el contenido del modal:", error);
+                    });
+            }
+        }
+    }
+
+        function modalEdit() {
+        return {
+            open: false,
+            modalContent: '',
+            loadModalContent(id) {
+                axios.get(`/categorias/${id}/edit`)
+                    .then(response => {
+                        this.modalContent = response.data;
+                        this.open = true;
+                    })
+                    .catch(error => {
+                        console.error("Error al cargar el contenido del modal:", error);
+                    });
+            }
+        }
+    }
+
+        function modalCreate() {
+        return {
+            open: false,
+            modalContent: '',
+            loadModalContent(id) {
+                axios.get(`/categorias/create`)
                     .then(response => {
                         this.modalContent = response.data;
                         this.open = true;
