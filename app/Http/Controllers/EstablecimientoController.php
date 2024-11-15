@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Ciudad;
+use App\Models\Establecimiento;
 use Illuminate\Http\Request;
 
 class EstablecimientoController extends Controller
 {
+    public function __construct()
+    {
+        // Middleware->tiene que esta registrado para poder ver la vista
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $categorias = Establecimiento::paginate(10);
+        return view('establecimientos.index', compact('categorias'));
     }
 
     /**
@@ -19,7 +28,9 @@ class EstablecimientoController extends Controller
      */
     public function create()
     {
-        //
+        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
+        $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
+        return view('establecimientos.create', compact('categorias', 'ciudades'));
     }
 
     /**
@@ -27,7 +38,22 @@ class EstablecimientoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nombre_establecimiento = $request->nombre;
+        $direccion_establecimiento = $request->direccion;
+        $ciudad_id_establecimiento = $request->ciudad;
+        $categoria_id_establecimiento = $request->categoria;
+        $$request->validate([
+            'nombre' => 'required|string|max:45',
+        ]);
+
+        Establecimiento::create([
+            'nombre' => $nombre_establecimiento,
+            'direccion' => $direccion_establecimiento,
+            'ciudad_id' => $ciudad_id_establecimiento,
+            'categoria_id' => $categoria_id_establecimiento,
+        ]);
+
+        return redirect()->route('establecimientos.index')->with('success', 'Establecimiento creado con éxito.');
     }
 
     /**

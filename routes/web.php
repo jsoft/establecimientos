@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('categorias', CategoriaController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('establecimientos', EstablecimientoController::class);
 });
 require __DIR__ . '/auth.php';
