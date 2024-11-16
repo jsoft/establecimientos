@@ -19,8 +19,8 @@ class EstablecimientoController extends Controller
      */
     public function index()
     {
-        $categorias = Establecimiento::paginate(10);
-        return view('establecimientos.index', compact('categorias'));
+        $establecimientos = Establecimiento::paginate(10);
+        return view('establecimientos.index', compact('establecimientos'));
     }
 
     /**
@@ -38,12 +38,16 @@ class EstablecimientoController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $nombre_establecimiento = $request->nombre;
         $direccion_establecimiento = $request->direccion;
         $ciudad_id_establecimiento = $request->ciudad;
         $categoria_id_establecimiento = $request->categoria;
-        $$request->validate([
+        $request->validate([
             'nombre' => 'required|string|max:45',
+            'direccion' => 'required|string|max:60',
+            'ciudad' => 'required|integer',
+            'categoria' => 'required|integer'
         ]);
 
         Establecimiento::create([
@@ -59,10 +63,7 @@ class EstablecimientoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
