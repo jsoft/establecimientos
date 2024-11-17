@@ -63,29 +63,58 @@ class EstablecimientoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id) {}
+    public function show(string $establecimiento)
+    {
+        $establecimiento = Establecimiento::find($establecimiento);
+        return view('establecimientos.show', compact('establecimiento'));
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Establecimiento $establecimiento)
     {
-        //
+        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
+        $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
+        return view('establecimientos.edit', compact('establecimiento', 'ciudades', 'categorias'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Establecimiento $establecimiento)
     {
-        //
+        $nombre_establecimiento = $request->nombre;
+        $direccion_establecimiento = $request->direccion;
+        $ciudad_id_establecimiento = $request->ciudad;
+        $categoria_id_establecimiento = $request->categoria;
+        $request->validate([
+            'nombre' => 'required|string|max:45',
+            'direccion' => 'required|string|max:60',
+            'ciudad' => 'required|integer',
+            'categoria' => 'required|integer'
+        ]);
+
+
+        $establecimiento->update(
+            [
+                'nombre' => $nombre_establecimiento,
+                'direccion' => $direccion_establecimiento,
+                'ciudad_id' => $ciudad_id_establecimiento,
+                'categoria_id' => $categoria_id_establecimiento,
+            ]
+        );
+
+        return redirect()->route('establecimientos.index')->with('success', 'Establecimiento actualizado con éxito.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Establecimiento $establecimiento)
     {
-        //
+        $establecimiento->delete();
+
+        return redirect()->route('establecimientos.index')->with('success', 'Establecimiento eliminado con éxito.');
     }
 }

@@ -1,0 +1,296 @@
+[
+    {
+        "nombre": "Grand Hyatt Bogotá",
+        "categoria": 5,
+        "precio_noche": 200,
+        "ubicacion": "Teusaquillo"
+    },
+    {
+        "nombre": "Lancaster House",
+        "categoria": 4,
+        "precio_noche": 80,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "W Bogotá",
+        "categoria": 5,
+        "precio_noche": 250,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hotel Vilar América",
+        "categoria": 4,
+        "precio_noche": 50,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "93 Luxury Suites & Residences",
+        "categoria": 5,
+        "precio_noche": 300,
+        "ubicacion": "Parque de la 93"
+    },
+    {
+        "nombre": "Hotel Habitel Select",
+        "categoria": 4,
+        "precio_noche": 59,
+        "ubicacion": "Aeropuerto"
+    },
+    {
+        "nombre": "Wyndham Bogotá",
+        "categoria": 4,
+        "precio_noche": 71,
+        "ubicacion": "Esperanza"
+    },
+    {
+        "nombre": "Sofitel Bogotá Victoria Regia",
+        "categoria": 5,
+        "precio_noche": 204,
+        "ubicacion": "Zona Rosa"
+    },
+    {
+        "nombre": "NH Collection WTC Royal",
+        "categoria": 4,
+        "precio_noche": 48,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hilton Garden Inn Bogotá",
+        "categoria": 4,
+        "precio_noche": 75,
+        "ubicacion": "Aeropuerto"
+    },
+    {
+        "nombre": "ibis budget Bogotá Marly",
+        "categoria": 3,
+        "precio_noche": 31,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "Hotel Rosales Plaza",
+        "categoria": 4,
+        "precio_noche": 60,
+        "ubicacion": "Rosales"
+    },
+    {
+        "nombre": "Hotel Casa Mahanaim",
+        "categoria": 3,
+        "precio_noche": 40,
+        "ubicacion": "Centro Internacional"
+    },
+    {
+        "nombre": "Hotel Montecarlo Boutique",
+        "categoria": 3,
+        "precio_noche": 30,
+        "ubicacion": "La Soledad"
+    },
+    {
+        "nombre": "Hotel Casa Sabelle",
+        "categoria": 2,
+        "precio_noche": 25,
+        "ubicacion": "Teusaquillo"
+    },
+    {
+        "nombre": "The Click Clack Hotel",
+        "categoria": 5,
+        "precio_noche": 150,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Casa Dann Carlton Hotel & Spa",
+        "categoria": 5,
+        "precio_noche": 180,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Bogotá Marriott Hotel",
+        "categoria": 5,
+        "precio_noche": 200,
+        "ubicacion": "Salitre"
+    },
+    {
+        "nombre": "Hotel Estelar La Fontana",
+        "categoria": 5,
+        "precio_noche": 190,
+        "ubicacion": "Usaquén"
+    },
+    {
+        "nombre": "Four Seasons Casa Medina",
+        "categoria": 5,
+        "precio_noche": 300,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "Hotel Morrison 114",
+        "categoria": 4,
+        "precio_noche": 85,
+        "ubicacion": "Usaquén"
+    },
+    {
+        "nombre": "AZ Hotel",
+        "categoria": 3,
+        "precio_noche": 45,
+        "ubicacion": "Barrios Unidos"
+    },
+    {
+        "nombre": "Hostel Casa Galería",
+        "categoria": 2,
+        "precio_noche": 20,
+        "ubicacion": "La Candelaria"
+    },
+    {
+        "nombre": "Hotel Black Tower Premium",
+        "categoria": 4,
+        "precio_noche": 70,
+        "ubicacion": "Corferias"
+    },
+    {
+        "nombre": "Hotel Augusta",
+        "categoria": 3,
+        "precio_noche": 40,
+        "ubicacion": "Centro Histórico"
+    },
+    {
+        "nombre": "Hotel de la Ópera",
+        "categoria": 5,
+        "precio_noche": 130,
+        "ubicacion": "La Candelaria"
+    },
+    {
+        "nombre": "Hotel Santa Lucia Boutique Spa",
+        "categoria": 3,
+        "precio_noche": 55,
+        "ubicacion": "La Candelaria"
+    },
+    {
+        "nombre": "Hotel Tequendama",
+        "categoria": 5,
+        "precio_noche": 110,
+        "ubicacion": "Centro Internacional"
+    },
+    {
+        "nombre": "Hotel Factory Green",
+        "categoria": 4,
+        "precio_noche": 60,
+        "ubicacion": "Funza"
+    },
+    {
+        "nombre": "Hotel Boutique City Center",
+        "categoria": 4,
+        "precio_noche": 50,
+        "ubicacion": "Corferias"
+    },
+    {
+        "nombre": "Hotel Viaggio Nueve Trez",
+        "categoria": 4,
+        "precio_noche": 75,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "Aloft Bogotá Airport",
+        "categoria": 4,
+        "precio_noche": 80,
+        "ubicacion": "Aeropuerto"
+    },
+    {
+        "nombre": "Hotel Exe Bacatá 95",
+        "categoria": 4,
+        "precio_noche": 95,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hotel Radisson AR Bogotá",
+        "categoria": 5,
+        "precio_noche": 130,
+        "ubicacion": "Salitre"
+    },
+    {
+        "nombre": "Hotel Portal de Teusaquillo",
+        "categoria": 3,
+        "precio_noche": 40,
+        "ubicacion": "Teusaquillo"
+    },
+    {
+        "nombre": "Hotel Platinum Suite",
+        "categoria": 3,
+        "precio_noche": 55,
+        "ubicacion": "Corferias"
+    },
+    {
+        "nombre": "Hotel Charlotte",
+        "categoria": 3,
+        "precio_noche": 50,
+        "ubicacion": "Centro Histórico"
+    },
+    {
+        "nombre": "Hostel Cranky Croc",
+        "categoria": 2,
+        "precio_noche": 21,
+        "ubicacion": "La Candelaria"
+    },
+    {
+        "nombre": "Hotel B3 Virrey",
+        "categoria": 3,
+        "precio_noche": 70,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hotel Metrotel 74",
+        "categoria": 3,
+        "precio_noche": 60,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "Hotel NH Bogotá Boheme Royal",
+        "categoria": 4,
+        "precio_noche": 95,
+        "ubicacion": "Zona T"
+    },
+    {
+        "nombre": "Hotel Parque 97 Suites",
+        "categoria": 4,
+        "precio_noche": 80,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hotel El Campín",
+        "categoria": 3,
+        "precio_noche": 35,
+        "ubicacion": "Teusaquillo"
+    },
+    {
+        "nombre": "Hotel Lugano Suites",
+        "categoria": 4,
+        "precio_noche": 110,
+        "ubicacion": "Chapinero"
+    },
+    {
+        "nombre": "Hotel Andes Plaza",
+        "categoria": 4,
+        "precio_noche": 70,
+        "ubicacion": "Chicó"
+    },
+    {
+        "nombre": "Hotel Cité",
+        "categoria": 5,
+        "precio_noche": 150,
+        "ubicacion": "Parque de la 93"
+    },
+    {
+        "nombre": "Hotel Boutique Alma Bogotá",
+        "categoria": 3,
+        "precio_noche": 45,
+        "ubicacion": "Usaquén"
+    },
+    {
+        "nombre": "Hotel Jazz Apartments",
+        "categoria": 4,
+        "precio_noche": 100,
+        "ubicacion": "Parque de la 93"
+    },
+    {
+        "nombre": "Hotel Regina",
+        "categoria": 3,
+        "precio_noche": 40,
+        "ubicacion": "Centro Histórico"
+    }
+]
