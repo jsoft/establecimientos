@@ -15,17 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('categorias.index')" :active="request()->routeIs('categorias')">
                         {{ __('Categorias') }}
                     </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('establecimientos.index')" :active="request()->routeIs('establecimientos')">
                         {{ __('Establecimientos') }}
                     </x-nav-link>
-                </div>                
+                    <x-nav-link :href="route('barrios.index')" :active="request()->routeIs('establecimientos')">
+                        {{ __('Barrios') }}
+                    </x-nav-link>                                                            
+                </div>             
             </div>
 
             <!-- Settings Dropdown -->
