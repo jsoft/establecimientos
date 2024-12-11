@@ -28,7 +28,6 @@ class BarrioController extends Controller
      */
     public function edit(Barrio $barrio)
     {
-
         $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
         return view('barrios.edit', compact('barrio', 'ciudades'));
     }

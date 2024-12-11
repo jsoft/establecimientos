@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\BarrioController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CiudadController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LocalidadController;
+use App\Http\Controllers\SectorController;
+use App\Http\Controllers\DepartamentoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +45,21 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('barrios', BarrioController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('ciudades', CiudadController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('departamentos', DepartamentoController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('sectores', SectorController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('localidades', LocalidadController::class);
 });
 require __DIR__ . '/auth.php';

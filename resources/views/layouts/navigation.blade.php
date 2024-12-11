@@ -21,9 +21,15 @@
                     <x-nav-link :href="route('establecimientos.index')" :active="request()->routeIs('establecimientos')">
                         {{ __('Establecimientos') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('barrios.index')" :active="request()->routeIs('establecimientos')">
+                    <x-nav-link :href="route('barrios.index')" :active="request()->routeIs('barrios')">
                         {{ __('Barrios') }}
-                    </x-nav-link>                                                            
+                    </x-nav-link>
+                    <x-nav-link :href="route('ciudades.index')" :active="request()->routeIs('ciudades')">
+                        {{ __('Ciudades') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('localidades.index')" :active="request()->routeIs('localidades')">
+                        {{ __('Localidades') }}
+                    </x-nav-link>                                                                                 
                 </div>             
             </div>
 
