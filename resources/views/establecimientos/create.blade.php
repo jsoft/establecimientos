@@ -7,11 +7,6 @@ Nombre de Establecimeinto
 </x-input-label>
 <x-text-input type="text" id="nombre" name="nombre" required>
 </x-text-input>
-<x-input-label for="direccion">
-Direccion del  Establecimeinto
-</x-input-label>
-<x-text-input type="text" id="direccion" name="direccion" required>
-</x-text-input>
 <x-input-label for="categoria">Categoría</x-input-label>
 <select name="categoria" id="categoria" class="form-control">
     <option value="">Seleccione una categoría</option>
@@ -19,6 +14,19 @@ Direccion del  Establecimeinto
     <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
     @endforeach
 </select>
+<x-input-label for="direccion">
+Direccion del  Establecimeinto
+</x-input-label>
+<x-input-label for="direccion">
+Calle o carrera
+</x-input-label>
+<x-text-input type="text" id="direccion" name="calle" required>
+</x-text-input>
+<x-input-label for="direccion">
+numero y/o letra
+</x-input-label>
+<x-text-input type="text" id="direccion" name="numero" required>
+</x-text-input>
 <x-input-label for="ciudad">Ciudad</x-input-label>
 <select name="ciudad" id="ciudad" class="form-control">
     <option value="">Seleccione una una ciudad</option>

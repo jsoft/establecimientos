@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Localidad;
 use Illuminate\Http\Request;
 
 class LocalidadController extends Controller
 {
+    public function __construct()
+    {
+        // Middleware->tiene que esta registrado para poder ver la vista
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $localidades = Localidad::paginate(15);
+        return view('localidades.index', compact('localidades'));
     }
 
     /**

@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Categorías') }}
+            {{ __('Localidades') }}
         </h2>
     </x-slot>
 
@@ -33,41 +33,15 @@
             <tr>
                 <th class="px-5 py-3 border-b-2 border-gray-200 text-center">ID</th>
                 <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Nombre</th>
-                <th class="px-8 py-4 border-b-2 border-gray-200 text-center">Acciones</th>
+                <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Ciudad</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($categorias as $categoria)
+            @foreach ($localidades as $localidad)
             <tr>
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->id }}</td>
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->nombre }}</td>
-                <td class="border-b-2 px-5 py-2 border-gray-200 flex justify-center items-center">
-                    <div x-data="modalHandler()">
-                        <x-primary-button @click="loadModalContent({{ $categoria->id }})">
-                            Ver
-                        </x-primary-button>
-                            <!-- Contenedor del modal -->
-                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
-                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
-                        </div>
-                    </div>
-                        
-                    <div x-data="modalEdit()" class="mx-4">
-                        <x-secondary-button @click="loadModalContent({{ $categoria->id }})">
-                            Editar
-                        </x-secondary-button>
-                            <!-- Contenedor del modal -->
-                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
-                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
-                        </div>
-                    </div>
-                    <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST" style="display: inline;">
-                        @csrf
-                        @method('DELETE')
-                        <x-danger-button type="submit">
-                            Eliminar
-                        </x-danger-button>
-                    </form>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $localidad->id }}</td>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $localidad->nombre }}</td>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $localidad->ciudad->nombre }}</td>
                 </td>
             </tr>
             @endforeach

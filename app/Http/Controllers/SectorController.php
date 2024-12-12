@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sector;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
 {
+    public function __construct()
+    {
+        // Middleware->tiene que esta registrado para poder ver la vista
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $sectores = Sector::paginate(10);
+        return view('sectores.index', compact('sectores'));
     }
 
     /**

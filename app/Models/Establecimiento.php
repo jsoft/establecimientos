@@ -21,4 +21,9 @@ class Establecimiento extends Model
     {
         return $this->belongsTo(Categoria::class);
     }
+
+    public function valoraciones()
+    {
+        return $this->hasMany(valoracion::class);
+    }
 }

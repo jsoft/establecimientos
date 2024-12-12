@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('direccion');
+            $table->string('coordenadas_lat');
+            $table->string('coordenadas_long');
+            $table->string('descripcion');
+            $table->string('horarios');
             $table->foreignId('ciudad_id')->constrained('ciudades')->onDelete('cascade');
             $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
             $table->timestamps();
