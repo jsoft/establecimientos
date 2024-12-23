@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('barrios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ciudad_id')->constrained('ciudades')->onDelete('cascade');
             $table->string('nombre', 45);
+            $table->foreignId('localidad_id')->constrained('localidades')->onDelete('cascade');
             $table->timestamps();
         });
     }

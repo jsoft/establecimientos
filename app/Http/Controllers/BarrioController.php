@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
 use App\Models\Barrio;
+use App\Models\Localidad;
 use Illuminate\Http\Request;
 
 class BarrioController extends Controller
@@ -28,7 +29,7 @@ class BarrioController extends Controller
      */
     public function edit(Barrio $barrio)
     {
-        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
+        $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
         return view('barrios.edit', compact('barrio', 'ciudades'));
     }
 
@@ -38,14 +39,14 @@ class BarrioController extends Controller
     public function update(Request $request, Barrio $barrio)
     {
         $nombre_barrio = $request->nombre;
-        $ciudad_id_barrio = $request->ciudad;
+        $localidad_id_barrio = $request->localidad;
         $request->validate([
             'nombre' => 'required|string|max:45',
-            'ciudad' => 'required|integer'
+            'localidad' => 'required|integer'
         ]);
         $barrio->update([
             'nombre' => $nombre_barrio,
-            'ciudad_id' => $ciudad_id_barrio,
+            'localidad_id' => $localidad_id_barrio,
         ]);
         return redirect()->route('barrios.index')->with('success', 'Barrio actualizado correctamente');
     }
@@ -55,8 +56,8 @@ class BarrioController extends Controller
      */
     public function create()
     {
-        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
-        return view('barrios.create', compact('ciudades'));
+        $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
+        return view('barrios.create', compact('localidades'));
     }
 
     /**
@@ -65,14 +66,14 @@ class BarrioController extends Controller
     public function store(Request $request)
     {
         $nombre_barrio = $request->nombre;
-        $ciudad_id_barrio = $request->ciudad;
+        $localidad_id_barrio = $request->localidad;
         $request->validate([
             'nombre' => 'required|string|max:45',
-            'ciudad' => 'required|integer'
+            'localidad' => 'required|integer'
         ]);
         Barrio::create([
             'nombre' => $nombre_barrio,
-            'ciudad_id' => $ciudad_id_barrio,
+            'localidad_id' => $localidad_id_barrio,
         ]);
         return redirect()->route('barrios.index')->with('success', 'Barrio creado correctamente');
     }

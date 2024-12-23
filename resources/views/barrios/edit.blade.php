@@ -10,12 +10,12 @@
                     Nombre de Barrio
                 <x-text-input type="text" class="form-control" id="nombre" name="nombre" value="{{ $barrio->nombre }}" required>
                 </x-text-input>
-                <x-input-label for="ciudad">Ciudad</x-input-label>
+                <x-input-label for="ciudad">Localidad</x-input-label>
                 <select name="ciudad" id="ciudad" class="form-control">
-                    <option value="">Seleccione una una ciudad</option>
-                    @foreach($ciudades as $ciudad)
-                    <option value="{{ $ciudad->id }}" @if($barrio->ciudad->id == $ciudad->id) selected @endif >
-                        {{ $ciudad->nombre }}
+                    <option value="">Seleccione una Localidad</option>
+                    @foreach($localidades as $localidad)
+                    <option value="{{ $localidad->id }}" @if($barrio->localidad->id == $localidad->id) selected @endif >
+                        {{ $localidad->nombre }}
                     </option>
                     @endforeach
                 </select>

@@ -15,19 +15,8 @@
     </div>
     @endif
 </div>
-
-<div class="flex flex-col">
-                    <div x-data="modalCreate()" class="my-5 mx-5">
-                        <x-primary-button @click="loadModalContent()">
-                            Crear Nueva Categoria
-                        </x-primary-button>
-                            <!-- Contenedor del modal -->
-                        <div x-show="open" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
-                            <div class="bg-white p-6 rounded shadow-lg w-1/3" x-html="modalContent"></div>
-                        </div>
-                    </div>
     <div class="flex-col mt-20 shadow-lg">
-        <h1 class="capitalize text-2xl font-bold text-gray-800 leading-tight text-center">Lista de Categorías</h1>
+        <h1 class="capitalize text-2xl font-bold text-gray-800 leading-tight text-center">Lista de Localidades</h1>
       <table class="w-full">
         <thead>
             <tr>
@@ -49,57 +38,5 @@
     </table>
 </div>
 </div>
-<script>
-    function modalHandler() {
-        return {
-            open: false,
-            modalContent: '',
-            loadModalContent(id) {
-                axios.get(`/categorias/${id}`)
-                    .then(response => {
-                        this.modalContent = response.data;
-                        this.open = true;
-                    })
-                    .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
-                    });
-            }
-        }
-    }
-
-        function modalEdit() {
-        return {
-            open: false,
-            modalContent: '',
-            loadModalContent(id) {
-                axios.get(`/categorias/${id}/edit`)
-                    .then(response => {
-                        this.modalContent = response.data;
-                        this.open = true;
-                    })
-                    .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
-                    });
-            }
-        }
-    }
-
-        function modalCreate() {
-        return {
-            open: false,
-            modalContent: '',
-            loadModalContent(id) {
-                axios.get(`/categorias/create`)
-                    .then(response => {
-                        this.modalContent = response.data;
-                        this.open = true;
-                    })
-                    .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
-                    });
-            }
-        }
-    }
-</script>
 @endsection
 </x-app-layout>

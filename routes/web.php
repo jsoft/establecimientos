@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LocalidadController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\DepartamentoController;
+use App\Models\Barrio;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,5 +62,12 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('localidades', LocalidadController::class);
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/localidad/{barrioId}', function ($barrioId) {
+        $barrio = Barrio::with('localidad')->find($barrioId);
+        return response()->json($barrio ? $barrio->localidad : null);
+    });
 });
 require __DIR__ . '/auth.php';

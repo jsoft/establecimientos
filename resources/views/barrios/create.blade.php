@@ -11,12 +11,12 @@
                 </x-input-label>
                 <x-text-input type="text" class="form-control" id="nombre" name="nombre" required>
                 </x-text-input>
-                <x-input-label for="ciudad">Ciudad a la que pertenece</x-input-label>
-                <select name="ciudad" id="ciudad" class="form-control">
-                    <option value="">Seleccione una una ciudad</option>
-                    @foreach($ciudades as $ciudad)
-                    <option value="{{ $ciudad->id }}">
-                        {{ $ciudad->nombre }}
+                <x-input-label for="localidad">Localidad a la que pertenece</x-input-label>
+                <select name="localidad" id="localidad" class="form-control">
+                    <option value="">Seleccione una una Localidad</option>
+                    @foreach($localidades as $localidad)
+                    <option value="{{ $localidad->id }}">
+                        {{ $localidad->nombre }}
                     </option>
                     @endforeach
                 </select>                

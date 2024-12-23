@@ -32,7 +32,7 @@
         <thead>
             <tr>
                 <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Nombre</th>
-                <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Ciudad</th>
+                <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Localidad</th>
                 <th class="px-8 py-4 border-b-2 border-gray-200 text-center">Acciones</th>
             </tr>
         </thead>
@@ -40,7 +40,7 @@
             @foreach ($barrios as $barrio)
             <tr>
                 <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $barrio->nombre }}</td>
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $barrio->ciudad->nombre }}</td>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $barrio->localidad->nombre }}</td>
                 <td class="border-b-2 px-5 py-2 border-gray-200 flex justify-center items-center">
                     <div x-data="modalHandler()">
                         <x-primary-button @click="loadModalContent({{ $barrio->id }})">

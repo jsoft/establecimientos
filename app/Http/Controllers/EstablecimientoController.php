@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barrio;
 use App\Models\Categoria;
-use App\Models\Ciudad;
 use App\Models\Establecimiento;
+use App\Models\Localidad;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+use Psy\Readline\Hoa\ConsoleInput;
 
 class EstablecimientoController extends Controller
 {
@@ -28,35 +31,45 @@ class EstablecimientoController extends Controller
      */
     public function create()
     {
-        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
+        $barrios = Barrio::select('barrios.id', 'barrios.nombre', 'localidad_id')->get();
+        $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
         $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
-        return view('establecimientos.create', compact('categorias', 'ciudades'));
+        return view('establecimientos.create', compact('categorias', 'localidades', 'barrios'));
     }
+
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+
         $nombre_establecimiento = $request->nombre;
-        $direccion_establecimiento = $request->direccion;
-        $ciudad_id_establecimiento = $request->ciudad;
+        $direccion_establecimiento = $request->calle . '#' . $request->numero;
+        $barrio_id_establecimiento = $request->barrio;
         $categoria_id_establecimiento = $request->categoria;
+        $latitud_establecimiento = $request->barrio;
+        $longitud_establecimiento = $request->barrio;
+
         $request->validate([
             'nombre' => 'required|string|max:45',
-            'direccion' => 'required|string|max:60',
-            'ciudad' => 'required|integer',
-            'categoria' => 'required|integer'
+            'calle' => 'required|string|max:45',
+            'numero' => 'required|string|max:45',
+            'barrio' => 'required|integer',
+            'categoria' => 'required|integer',
+            'latitud' => 'required',
+            'longitud' => 'required',
         ]);
 
-        Establecimiento::create([
+        $lit = Establecimiento::create([
             'nombre' => $nombre_establecimiento,
             'direccion' => $direccion_establecimiento,
-            'ciudad_id' => $ciudad_id_establecimiento,
+            'barrio_id' => $barrio_id_establecimiento,
             'categoria_id' => $categoria_id_establecimiento,
+            'coordenadas_lat' => $latitud_establecimiento,
+            'coordenadas_long' => $longitud_establecimiento,
         ]);
-
         return redirect()->route('establecimientos.index')->with('success', 'Establecimiento creado con éxito.');
     }
 
@@ -66,6 +79,7 @@ class EstablecimientoController extends Controller
     public function show(string $establecimiento)
     {
         $establecimiento = Establecimiento::find($establecimiento);
+
         return view('establecimientos.show', compact('establecimiento'));
     }
 
@@ -74,9 +88,10 @@ class EstablecimientoController extends Controller
      */
     public function edit(Establecimiento $establecimiento)
     {
-        $ciudades = Ciudad::select('ciudades.id', 'ciudades.nombre')->get();
+        $barrios = Barrio::select('barrios.id', 'barrios.nombre')->get();
+        $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
         $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
-        return view('establecimientos.edit', compact('establecimiento', 'ciudades', 'categorias'));
+        return view('establecimientos.edit', compact('establecimiento', 'localidades', 'categorias', 'barros'));
     }
 
     /**
@@ -85,13 +100,13 @@ class EstablecimientoController extends Controller
     public function update(Request $request, Establecimiento $establecimiento)
     {
         $nombre_establecimiento = $request->nombre;
-        $direccion_establecimiento = $request->direccion;
-        $ciudad_id_establecimiento = $request->ciudad;
+        $direccion_establecimiento = $request->calle + ',' + $request->numero;
+        $localidad_id_establecimiento = $request->localidad;
         $categoria_id_establecimiento = $request->categoria;
         $request->validate([
             'nombre' => 'required|string|max:45',
             'direccion' => 'required|string|max:60',
-            'ciudad' => 'required|integer',
+            'localidad' => 'required|integer',
             'categoria' => 'required|integer'
         ]);
 
@@ -100,7 +115,7 @@ class EstablecimientoController extends Controller
             [
                 'nombre' => $nombre_establecimiento,
                 'direccion' => $direccion_establecimiento,
-                'ciudad_id' => $ciudad_id_establecimiento,
+                'localidad_id' => $localidad_id_establecimiento,
                 'categoria_id' => $categoria_id_establecimiento,
             ]
         );

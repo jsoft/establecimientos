@@ -16,4 +16,9 @@ class Localidad extends Model
     {
         return $this->belongsTo(Ciudad::class);
     }
+
+    public function barrios()
+    {
+        return $this->hasMany(Barrio::class);
+    }
 }

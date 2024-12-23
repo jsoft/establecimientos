@@ -10,11 +10,11 @@ class Establecimiento extends Model
     use HasFactory;
     protected $table = 'establecimientos';
 
-    protected $fillable = ['nombre', 'direccion', 'ciudad_id', 'categoria_id'];
+    protected $fillable = ['nombre', 'direccion', 'barrio_id', 'categoria_id', 'coordenadas_lat', 'coordenadas_long'];
 
-    public function ciudad()
+    public function barrio()
     {
-        return $this->belongsTo(Ciudad::class);
+        return $this->belongsTo(Barrio::class);
     }
 
     public function categoria()

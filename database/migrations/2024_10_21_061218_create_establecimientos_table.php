@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('direccion');
-            $table->string('coordenadas_lat');
-            $table->string('coordenadas_long');
-            $table->string('descripcion');
-            $table->string('horarios');
-            $table->foreignId('ciudad_id')->constrained('ciudades')->onDelete('cascade');
+            $table->double('coordenadas_lat');
+            $table->double('coordenadas_long');
+            $table->string('descripcion')->nullable();
+            $table->string('horarios')->nullable();
+            $table->foreignId('barrio_id')->constrained('barrios')->onDelete('cascade');
             $table->foreignId('categoria_id')->constrained('categorias')->onDelete('cascade');
             $table->timestamps();
         });

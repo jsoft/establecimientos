@@ -33,7 +33,7 @@
                 <th class="px-5 py-3 border-b-2 border-gray-200 text-center">ID</th>
                 <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Nombre</th>
                 <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Direccion</th>
-                <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Ciudad</th>
+                <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Barrio</th>
                 <th class="px-8 py-3 border-b-2 border-gray-200 text-center">Categoria</th>
                 <th class="px-8 py-4 border-b-2 border-gray-200 text-center">Acciones</th>
             </tr>
@@ -44,7 +44,7 @@
                 <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->id }}</td>
                 <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->nombre }}</td>
                 <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->direccion }}</td>
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->ciudad->nombre }}</td>
+                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->barrio->nombre }}</td>
                 <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $establecimiento->categoria->nombre }}</td>
                 <td class="border-b-2 px-5 py-2 border-gray-200 flex justify-center items-center">
                     <div x-data="modalShow()">

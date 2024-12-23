@@ -4,7 +4,7 @@
         <p><strong>Nombre:</strong> {{ $establecimiento->nombre }}</p>
         <p><strong>Direccion:</strong> {{ $establecimiento->direccion }}</p>
         <p><strong>Categoria:</strong> {{ $establecimiento->categoria->nombre }}</p>
-        <p><strong>Ciudad:</strong> {{ $establecimiento->ciudad->nombre }}</p>
+        <p><strong>Barrio:</strong> {{ $establecimiento->barrio->nombre }}</p>
         <x-primary-button x-on:click="open = false" class="my-4">
                 {{ __('Cerrar') }}
         </x-primary-button>

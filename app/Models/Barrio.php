@@ -10,10 +10,15 @@ class Barrio extends Model
     use HasFactory;
     protected $table = 'barrios';
 
-    protected $fillable = ['nombre', 'ciudad_id'];
+    protected $fillable = ['nombre', 'localidad_id'];
 
-    public function ciudad()
+    public function localidad()
     {
-        return $this->belongsTo(Ciudad::class);
+        return $this->belongsTo(Localidad::class);
+    }
+
+    public function establecimeintos()
+    {
+        return $this->hasMany(Establecimiento::class);
     }
 }
