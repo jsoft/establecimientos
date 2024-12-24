@@ -78,5 +78,5 @@ Route::middleware('auth')->group(function () {
                 <b>Cerrar Verntana</b>
         </button>';
     });
-    require __DIR__ . '/auth.php';
 });
+require __DIR__ . '/auth.php';
