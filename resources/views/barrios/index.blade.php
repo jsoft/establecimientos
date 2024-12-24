@@ -90,7 +90,10 @@
                         this.open = true;
                     })
                     .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
+                        axios.get('/error').then(response => {
+                            this.modalContent = response.data;
+                            this.open = true;
+                        }); 
                     });
             }
         }
@@ -107,7 +110,10 @@
                         this.open = true;
                     })
                     .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
+                        axios.get('/error').then(response => {
+                            this.modalContent = response.data;
+                            this.open = true;
+                        }); 
                     });
             }
         }
@@ -124,7 +130,10 @@
                         this.open = true;
                     })
                     .catch(error => {
-                        console.error("Error al cargar el contenido del modal:", error);
+                        axios.get('/error').then(response => {
+                            this.modalContent = response.data;
+                            this.open = true;
+                        }); 
                     });
             }
         }

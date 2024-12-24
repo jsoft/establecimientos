@@ -7,8 +7,7 @@ use App\Models\Categoria;
 use App\Models\Establecimiento;
 use App\Models\Localidad;
 use Illuminate\Http\Request;
-use Illuminate\Database\QueryException;
-use Psy\Readline\Hoa\ConsoleInput;
+
 
 class EstablecimientoController extends Controller
 {
@@ -46,11 +45,12 @@ class EstablecimientoController extends Controller
     {
 
         $nombre_establecimiento = $request->nombre;
-        $direccion_establecimiento = $request->calle . '#' . $request->numero;
+        $direccion_establecimiento = $request->calle . ' # ' . $request->numero;
         $barrio_id_establecimiento = $request->barrio;
         $categoria_id_establecimiento = $request->categoria;
         $latitud_establecimiento = $request->barrio;
         $longitud_establecimiento = $request->barrio;
+        $descripcion_establecimiento = $request->descripcion;
 
         $request->validate([
             'nombre' => 'required|string|max:45',
@@ -60,6 +60,7 @@ class EstablecimientoController extends Controller
             'categoria' => 'required|integer',
             'latitud' => 'required',
             'longitud' => 'required',
+            'descripcion' => 'string|max:255',
         ]);
 
         $lit = Establecimiento::create([
@@ -69,6 +70,7 @@ class EstablecimientoController extends Controller
             'categoria_id' => $categoria_id_establecimiento,
             'coordenadas_lat' => $latitud_establecimiento,
             'coordenadas_long' => $longitud_establecimiento,
+            'descripcion' => $descripcion_establecimiento,
         ]);
         return redirect()->route('establecimientos.index')->with('success', 'Establecimiento creado con éxito.');
     }
@@ -91,7 +93,7 @@ class EstablecimientoController extends Controller
         $barrios = Barrio::select('barrios.id', 'barrios.nombre')->get();
         $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
         $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
-        return view('establecimientos.edit', compact('establecimiento', 'localidades', 'categorias', 'barros'));
+        return view('establecimientos.edit', compact('establecimiento', 'localidades', 'categorias', 'barrios'));
     }
 
     /**
@@ -100,14 +102,22 @@ class EstablecimientoController extends Controller
     public function update(Request $request, Establecimiento $establecimiento)
     {
         $nombre_establecimiento = $request->nombre;
-        $direccion_establecimiento = $request->calle + ',' + $request->numero;
-        $localidad_id_establecimiento = $request->localidad;
+        $direccion_establecimiento = $request->calle . ' # ' . $request->numero;
+        $barrio_id_establecimiento = $request->barrio;
         $categoria_id_establecimiento = $request->categoria;
+        $latitud_establecimiento = $request->barrio;
+        $longitud_establecimiento = $request->barrio;
+        $descripcion_establecimiento = $request->descripcion;
         $request->validate([
             'nombre' => 'required|string|max:45',
-            'direccion' => 'required|string|max:60',
-            'localidad' => 'required|integer',
-            'categoria' => 'required|integer'
+            'calle' => 'required|string|max:45',
+            'numero' => 'required|string|max:45',
+            'barrio' => 'required|integer',
+            'categoria' => 'required|integer',
+            'latitud' => 'required',
+            'longitud' => 'required',
+            'descripcion' => 'string|max:255',
+
         ]);
 
 
@@ -115,8 +125,11 @@ class EstablecimientoController extends Controller
             [
                 'nombre' => $nombre_establecimiento,
                 'direccion' => $direccion_establecimiento,
-                'localidad_id' => $localidad_id_establecimiento,
+                'barrio_id' => $barrio_id_establecimiento,
                 'categoria_id' => $categoria_id_establecimiento,
+                'coordenadas_lat' => $latitud_establecimiento,
+                'coordenadas_long' => $longitud_establecimiento,
+                'descripcion' => $descripcion_establecimiento,
             ]
         );
 

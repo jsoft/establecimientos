@@ -11,6 +11,7 @@ use App\Http\Controllers\DepartamentoController;
 use App\Models\Barrio;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,4 +71,12 @@ Route::middleware(['auth'])->group(function () {
         return response()->json($barrio ? $barrio->localidad : null);
     });
 });
-require __DIR__ . '/auth.php';
+
+Route::middleware('auth')->group(function () {
+    Route::get('/error', function () {
+        return 'ERROR INESPERADO' . '<br> <button x-on:click="open = false">
+                <b>Cerrar Verntana</b>
+        </button>';
+    });
+    require __DIR__ . '/auth.php';
+});

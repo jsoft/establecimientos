@@ -52,12 +52,17 @@ numero y/o letra
             <option value="{{ $barrio->id }}">{{ $barrio->nombre }}</option>
         @endforeach
     </select>
-
     <div class="my-4">
         <label>Localidad Del Barrio Seleccionado:</label>
         <h2 x-text="localidad"></h2>
     </div>
 </div>
+
+<x-input-label for="Descripcion">
+    Descripción
+</x-input-label>
+<textarea  id="descripcion" name="descripcion">
+</textarea>
 <x-primary-button type="submit" class="my-4">
 Guardar
 </x-primary-button>
