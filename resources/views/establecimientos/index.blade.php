@@ -78,6 +78,9 @@
             @endforeach
         </tbody>
     </table>
+        <div class="flex justify-center my-4">
+        {{ $establecimientos->links() }}
+    </div>
 </div>
 </div>
 <script>

@@ -135,5 +135,31 @@ class CiudadesTableSeeder extends Seeder
         ];
 
         DB::table('barrios')->insert($barrios);
+
+        // Crear cafeterias para las pruebas
+        $cafeterias = [
+            ['nombre' => 'Café Aromas', 'direccion' => 'Carrera 12 #34-56', 'coordenadas_lat' => 4.635623, 'coordenadas_long' => -74.070998, 'categoria_id' => 1, 'barrio_id' => 1], // Santa Ana
+            ['nombre' => 'Especial Coffee', 'direccion' => 'Calle 45 #23-19', 'coordenadas_lat' => 4.627890, 'coordenadas_long' => -74.078234, 'categoria_id' => 1, 'barrio_id' => 2], // Cedritos
+            ['nombre' => 'Tradicional Café', 'direccion' => 'Carrera 9 #22-45', 'coordenadas_lat' => 4.609876, 'coordenadas_long' => -74.070987, 'categoria_id' => 2, 'barrio_id' => 5], // El Chicó
+            ['nombre' => 'El Rincón del Café', 'direccion' => 'Calle 32 #15-10', 'coordenadas_lat' => 4.615789, 'coordenadas_long' => -74.072345, 'categoria_id' => 2, 'barrio_id' => 8], // Marly
+            ['nombre' => 'Work & Coffee', 'direccion' => 'Avenida Caracas #50-12', 'coordenadas_lat' => 4.625123, 'coordenadas_long' => -74.069876, 'categoria_id' => 3, 'barrio_id' => 6], // La Cabrera
+            ['nombre' => 'Café y Estudio', 'direccion' => 'Carrera 7 #18-21', 'coordenadas_lat' => 4.603567, 'coordenadas_long' => -74.065432, 'categoria_id' => 3, 'barrio_id' => 9], // La Macarena
+            ['nombre' => 'Gourmet Coffee', 'direccion' => 'Calle 19 #25-30', 'coordenadas_lat' => 4.608901, 'coordenadas_long' => -74.064321, 'categoria_id' => 4, 'barrio_id' => 37], // La Soledad
+            ['nombre' => 'Café Fino', 'direccion' => 'Carrera 8 #10-24', 'coordenadas_lat' => 4.610123, 'coordenadas_long' => -74.072789, 'categoria_id' => 4, 'barrio_id' => 10], // San Diego
+            ['nombre' => 'Vegan & Coffee', 'direccion' => 'Calle 40 #8-17', 'coordenadas_lat' => 4.627654, 'coordenadas_long' => -74.071987, 'categoria_id' => 5, 'barrio_id' => 38], // Palermo
+            ['nombre' => 'Orgánico Café', 'direccion' => 'Carrera 11 #20-13', 'coordenadas_lat' => 4.616890, 'coordenadas_long' => -74.069123, 'categoria_id' => 5, 'barrio_id' => 13], // Villa de los Alpes
+            ['nombre' => 'Terraza del Café', 'direccion' => 'Avenida Suba #80-14', 'coordenadas_lat' => 4.701234, 'coordenadas_long' => -74.073456, 'categoria_id' => 6, 'barrio_id' => 17], // Rincón de Suba
+            ['nombre' => 'Aire Libre Café', 'direccion' => 'Carrera 6 #15-16', 'coordenadas_lat' => 4.601789, 'coordenadas_long' => -74.070432, 'categoria_id' => 6, 'barrio_id' => 14], // San Blas
+            ['nombre' => 'Temático Café', 'direccion' => 'Calle 12 #9-18', 'coordenadas_lat' => 4.609321, 'coordenadas_long' => -74.067890, 'categoria_id' => 7, 'barrio_id' => 43], // Candelaria La Nueva
+            ['nombre' => 'Fantasy Coffee', 'direccion' => 'Carrera 15 #23-45', 'coordenadas_lat' => 4.615432, 'coordenadas_long' => -74.069876, 'categoria_id' => 7, 'barrio_id' => 44], // Meissen
+            ['nombre' => 'Café Express', 'direccion' => 'Calle 50 #10-12', 'coordenadas_lat' => 4.637654, 'coordenadas_long' => -74.076543, 'categoria_id' => 8, 'barrio_id' => 25], // Villemar
+            ['nombre' => 'Café al Paso', 'direccion' => 'Carrera 20 #18-22', 'coordenadas_lat' => 4.622567, 'coordenadas_long' => -74.073210, 'categoria_id' => 8, 'barrio_id' => 16], // Montecarlo
+            ['nombre' => 'Café Artesanal', 'direccion' => 'Calle 25 #7-14', 'coordenadas_lat' => 4.612345, 'coordenadas_long' => -74.063789, 'categoria_id' => 9, 'barrio_id' => 36], // San Bernardino
+            ['nombre' => 'Hecho en Casa', 'direccion' => 'Carrera 12 #30-40', 'coordenadas_lat' => 4.617890, 'coordenadas_long' => -74.071123, 'categoria_id' => 9, 'barrio_id' => 30], // Patio Bonito
+            ['nombre' => 'Colombian Coffee', 'direccion' => 'Calle 33 #9-20', 'coordenadas_lat' => 4.620123, 'coordenadas_long' => -74.068765, 'categoria_id' => 10, 'barrio_id' => 31], // Castilla
+            ['nombre' => 'Café Tradición', 'direccion' => 'Carrera 10 #12-18', 'coordenadas_lat' => 4.605678, 'coordenadas_long' => -74.070987, 'categoria_id' => 10, 'barrio_id' => 42], // Madelena
+        ];
+
+        DB::table('establecimientos')->insert($cafeterias);
     }
 }

@@ -10,7 +10,7 @@ class Establecimiento extends Model
     use HasFactory;
     protected $table = 'establecimientos';
 
-    protected $fillable = ['nombre', 'direccion', 'barrio_id', 'categoria_id', 'coordenadas_lat', 'coordenadas_long'];
+    protected $fillable = ['nombre', 'direccion', 'barrio_id', 'categoria_id', 'coordenadas_lat', 'coordenadas_long', 'descripcion'];
 
     public function barrio()
     {

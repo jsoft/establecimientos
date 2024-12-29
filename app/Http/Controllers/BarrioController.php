@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ciudad;
+
 use App\Models\Barrio;
 use App\Models\Localidad;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class BarrioController extends Controller
     public function edit(Barrio $barrio)
     {
         $localidades = Localidad::select('localidades.id', 'localidades.nombre')->get();
-        return view('barrios.edit', compact('barrio', 'ciudades'));
+        return view('barrios.edit', compact('barrio', 'localidades'));
     }
 
     /**
