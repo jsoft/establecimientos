@@ -28,8 +28,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('filtors', FiltroController::class);
+});
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard', [
+        'categorias' => \App\Models\Categoria::all(),
+        'barrios' => \App\Models\Barrio::all(),
+        'localidades' => \App\Models\Localidad::all(),
+        'establecimientos' => \App\Models\Establecimiento::paginate(50),
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -67,6 +76,9 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('localidades', LocalidadController::class);
 });
+
+
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/localidad/{barrioId}', function ($barrioId) {

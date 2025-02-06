@@ -15,17 +15,19 @@ class FiltroController extends Controller
     {
         // Middleware->tiene que esta registrado para poder ver la vista
         $this->middleware('auth');
+
+        //$barrios = Barrio::all();
+        //$localidades = Localidad::all();
+        //$establecimientos = Establecimiento::paginate(10);
+        //return view('dashboard', compact('establecimientos', 'barrios', 'localidades', 'categorias'));
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categorias = Categoria::all();
-        $barrios = Barrio::all();
-        $localidades = Localidad::all();
-        $establecimientos = Establecimiento::paginate(10);
-        return view('dashboard', compact('establecimientos', 'barrios', 'localidades', 'categorias'));
+        $categorias = Categoria::select('categorias.id', 'categorias.nombre')->get();
+        return view('dashboard', compact('categorias'));
     }
 
     /**

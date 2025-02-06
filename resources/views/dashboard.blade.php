@@ -13,58 +13,62 @@
       </header>
       
       <div class="grid grid-cols-5 gap-4">
-        <aside id="sidebar-principal" class="border border-gray-500  justify-items-center text-center">
+        <aside id="sidebar-principal" class="border border-gray-500  justify-items-start text-center">
           
-                      <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <h3>Categorías</h3>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
+          <div class="text-left">
+            <h1 class="font-bold mx-2">Categorías</h1>
+                      <ul>
             @foreach ($categorias as $categoria)
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->id }}</td>
-                <td class="px-5 py-2 border-b-2 border-gray-200 text-center">{{ $categoria->nombre }}</td> 
-            @endforeach
-                    </x-slot>
-                </x-dropdown>
-            </div>
-          <ul class="list-disc list-inside ">
-            <li><input type="checkbox">Baristas</li>
-            <li>Ambientales</li>
-            <li>Tradicionales</li>
-          </ul>
-          <h3>Localidades</h3>
-          <ul class="list-disc list-inside ">
-            <li>Baristas</li>
-            <li>Ambientales</li>
-            <li>Tradicionales</li>
-          </ul>
-          <h3>Barrios</h3>
-          <ul class="list-disc list-inside ">
-            <li>Baristas</li>
-            <li>Ambientales</li>
-            <li>Tradicionales</li>
-          </ul>
+              <li class=""><input value="{{ $categoria->id }}" type="checkbox" class="mx-2">{{ $categoria->nombre }}</li>
+              @endforeach
+                    </ul>
+          </div>
+          <div class="text-left">
+            <h1 class="font-bold mx-2">Barrios</h1>
+                      <ul>
+            @foreach ($barrios as $barrio)
+              <li class=""><input value="{{ $barrio->id }}" type="checkbox" class="mx-2">{{ $barrio->nombre }}</li>
+              @endforeach
+                    </ul>
+          </div>
+          <div class="text-left">
+            <h1 class="font-bold mx-2">Localidades</h1>
+                      <ul>
+            @foreach ($localidades as $localidad)
+              <li class=""><input value="{{ $localidad->id }}" type="checkbox" class="mx-2">{{ $localidad->nombre }}</li>
+              @endforeach
+                    </ul>
+          </div>
         </aside>
-        <section id="cafeterias-listado" class="border border-gray-500 col-span-4 justify-items-center text-center">
+        <section id="cafeterias-listado" class="border border-gray-500 col-span-4 justify-items-start text-center">
           <h2>Cafeterías Recomendadas</h2>
-          <article>
-            <h3>Café Aromas</h3>
-            <p>Una experiencia única con el mejor café de Bogotá.</p>
+          @foreach ($establecimientos as $establecimiento)
+          <article class="m-4 w-max">
+            <div class="max-w-sm w-full lg:max-w-full lg:flex">
+              <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://cafescallis.com/wp-content/uploads/2023/08/tassa-cafe-dos-cafes-callis.jpg.webp')" title="Woman holding a mug">
+              </div>
+              <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                <div class="mb-8">
+                  <p class="text-sm text-gray-600 flex items-center">
+                    <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+                    </svg>
+                    Bienvenidos
+                  </p>
+                  <div class="text-gray-900 font-bold text-xl mb-2">{{ $establecimiento->nombre }}</div>
+                  <p class="text-gray-700 text-base">{{ $establecimiento->descripcion }}</p>
+                </div>
+                <div class="flex items-center">
+                  <img class="w-10 h-10 rounded-full mr-4" src="https://pinblooms.com/wp-content/uploads/2021/01/laravel.png" alt="Avatar of Jonathan Reinink">
+                  <div class="text-sm">
+                    <p class="text-gray-900 leading-none">{{ $establecimiento->direccion }}</p>
+                    <p class="text-gray-600">{{ $establecimiento->categoria->nombre }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </article>
-          <article>
-            <h3>Especial Coffee</h3>
-            <p>Café artesanal y ambiente acogedor.</p>
-          </article>
+          @endforeach
         </section>          
       </div>
       
