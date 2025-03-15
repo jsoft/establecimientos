@@ -78,11 +78,20 @@ class EstablecimientoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $establecimiento)
+    public function show($establecimiento)
     {
+        //dd($establecimiento);
         $establecimiento = Establecimiento::find($establecimiento);
 
         return view('establecimientos.show', compact('establecimiento'));
+    }
+
+    public function cardshow($establecimiento)
+    {
+
+        $establecimiento = Establecimiento::find($establecimiento);
+
+        return view('establecimientos.showindex', compact('establecimiento'));
     }
 
     /**

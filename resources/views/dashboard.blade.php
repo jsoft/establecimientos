@@ -55,7 +55,9 @@
                     </svg>
                     Bienvenidos
                   </p>
-                  <div class="text-gray-900 font-bold text-xl mb-2">{{ $establecimiento->nombre }}</div>
+                  <a href="{{  route('establecimientos.show',[$establecimiento->id]) }}">
+                    <div class="text-gray-900 font-bold text-xl mb-2">{{ $establecimiento->nombre }}</div>
+                  </a>
                   <p class="text-gray-700 text-base">{{ $establecimiento->descripcion }}</p>
                 </div>
                 <div class="flex items-center">
