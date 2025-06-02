@@ -9,6 +9,7 @@ use App\Http\Controllers\LocalidadController;
 use App\Http\Controllers\SectorController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\FiltroController;
+use App\Http\Controllers\ValoracionController;
 use App\Models\Barrio;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,8 @@ Route::get('/dashboard', function () {
         'barrios' => \App\Models\Barrio::all(),
         'localidades' => \App\Models\Localidad::all(),
         'establecimientos' => \App\Models\Establecimiento::paginate(50),
+
+
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -78,8 +81,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/localidad/{barrioId}', function ($barrioId) {
         $barrio = Barrio::with('localidad')->find($barrioId);
@@ -87,6 +88,10 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/valoraciones', [App\Http\Controllers\ValoracionController::class, 'store'])->name('valoraciones.store');
+    Route::get('/establecimientos/{id}/ranking', [App\Http\Controllers\ValoracionController::class, 'showRanking'])->name('establecimientos.ranking');
+});
 Route::middleware('auth')->group(function () {
     Route::get('/error', function () {
         return 'ERROR INESPERADO' . '<br> <button x-on:click="open = false">
@@ -94,5 +99,6 @@ Route::middleware('auth')->group(function () {
         </button>';
     });
 });
+
 
 require __DIR__ . '/auth.php';

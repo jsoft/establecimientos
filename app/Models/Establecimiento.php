@@ -26,4 +26,9 @@ class Establecimiento extends Model
     {
         return $this->hasMany(valoracion::class);
     }
+    
+    public function getPromedioValoracionAttribute()
+    {
+        return $this->valoraciones()->avg('calificacion');
+    }
 }

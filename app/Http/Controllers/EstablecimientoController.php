@@ -6,6 +6,7 @@ use App\Models\Barrio;
 use App\Models\Categoria;
 use App\Models\Establecimiento;
 use App\Models\Localidad;
+use App\Models\valoracion;
 use Illuminate\Http\Request;
 
 
@@ -44,14 +45,6 @@ class EstablecimientoController extends Controller
     public function store(Request $request)
     {
 
-        $nombre_establecimiento = $request->nombre;
-        $direccion_establecimiento = $request->calle . ' # ' . $request->numero;
-        $barrio_id_establecimiento = $request->barrio;
-        $categoria_id_establecimiento = $request->categoria;
-        $latitud_establecimiento = $request->barrio;
-        $longitud_establecimiento = $request->barrio;
-        $descripcion_establecimiento = $request->descripcion;
-
         $request->validate([
             'nombre' => 'required|string|max:45',
             'calle' => 'required|string|max:45',
@@ -62,6 +55,14 @@ class EstablecimientoController extends Controller
             'longitud' => 'required',
             'descripcion' => 'string|max:255',
         ]);
+        $nombre_establecimiento = $request->nombre;
+        $direccion_establecimiento = $request->calle . ' # ' . $request->numero;
+        $barrio_id_establecimiento = $request->barrio;
+        $categoria_id_establecimiento = $request->categoria;
+        $latitud_establecimiento = $request->barrio;
+        $longitud_establecimiento = $request->barrio;
+        $descripcion_establecimiento = $request->descripcion;
+
 
         $lit = Establecimiento::create([
             'nombre' => $nombre_establecimiento,

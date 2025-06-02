@@ -25,7 +25,7 @@ class ValoracionFactory extends Factory
             'calificacion' => $this->faker->numberBetween(1, 5),
             'comentario' => $this->faker->sentence(),
             'usuario_id' => $this->faker->numberBetween(1, 2), // Crea un usuario relacionado
-            'establecimeinto_id' => $this->faker->numberBetween(1, 20), // Crea un establecimiento relacionado
+            'establecimiento_id' => $this->faker->numberBetween(1, 20), // Crea un establecimiento relacionado
             'created_at' => now(),
             'updated_at' => now(),
         ];
