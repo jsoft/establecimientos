@@ -58,6 +58,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('establecimientos', EstablecimientoController::class);
+    Route::get('/establecimientos/{id}/cardshow', [EstablecimientoController::class, 'cardshow'])->name('establecimientos.showindex');
 });
 
 Route::middleware(['auth'])->group(function () {

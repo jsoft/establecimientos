@@ -48,7 +48,7 @@
               <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://cafescallis.com/wp-content/uploads/2023/08/tassa-cafe-dos-cafes-callis.jpg.webp')" title="Woman holding a mug">
               </div>
               <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                <a href="{{  route('establecimientos.show',[$establecimiento->id]) }}">
+                <a href="{{  route('establecimientos.showindex',[$establecimiento->id]) }}">
                   <div class="text-gray-900 font-bold text-xl mb-2">{{ $establecimiento->nombre }}</div>
                 </a>
                 <div class="mb-8">

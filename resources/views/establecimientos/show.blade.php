@@ -7,7 +7,29 @@
         <p><strong>latitud:</strong> {{ $establecimiento->coordenadas_long }}</p>
         <p><strong>Categoria:</strong> {{ $establecimiento->categoria->nombre }}</p>
         <p><strong>Barrio:</strong> {{ $establecimiento->barrio->nombre }}</p>
-        <x-primary-button x-on:click="open = false" class="my-4">
+        <div class="my-4">
+                <span class="font-semibold">Valoración promedio:</span>
+                @php
+                    $rating = round($establecimiento->promedio_valoracion ?? 0, 1);
+                    $fullStars = floor($rating);
+                    $halfStar = ($rating - $fullStars) >= 0.5 ? 1 : 0;
+                    $emptyStars = 5 - $fullStars - $halfStar;
+                @endphp
+                <span class="text-yellow-400">
+                    @for ($i = 0; $i < $fullStars; $i++)
+                        ★
+                    @endfor
+                    @if ($halfStar)
+                        ☆
+                    @endif
+                    @for ($i = 0; $i < $emptyStars; $i++)
+                        ☆
+                    @endfor
+                </span>
+                <span class="ml-2 text-gray-600">{{ $rating }}/5</span>
+            </div>
+            <x-primary-button x-on:click="open = false" class="my-4">
                 {{ __('Cerrar') }}
-        </x-primary-button>
+            </x-primary-button>
+        </div>
 </div>
