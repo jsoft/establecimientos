@@ -33,11 +33,13 @@
           </div>
           <div class="text-left">
             <h1 class="font-bold mx-2">Localidades</h1>
-                      <ul>
-            @foreach ($localidades as $localidad)
-              <li class=""><input value="{{ $localidad->id }}" type="checkbox" class="mx-2">{{ $localidad->nombre }}</li>
-              @endforeach
-                    </ul>
+            <form action="">
+              <ul>
+                @foreach ($localidades as $localidad)
+                <li class=""><input value="{{ $localidad->id }}" type="checkbox" class="mx-2">{{ $localidad->nombre }}</li>
+                @endforeach
+              </ul>
+            </form>
           </div>
         </aside>
         <section id="cafeterias-listado" class="border border-gray-500 col-span-4 justify-items-start text-center">

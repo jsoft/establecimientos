@@ -39,8 +39,6 @@ Route::get('/dashboard', function () {
         'barrios' => \App\Models\Barrio::all(),
         'localidades' => \App\Models\Localidad::all(),
         'establecimientos' => \App\Models\Establecimiento::paginate(50),
-
-
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
