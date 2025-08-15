@@ -20,8 +20,10 @@ class EstablecimientoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $filtrocategory = Establecimiento::byCategoria($request->categoria_filtro)->get();
         $establecimientos = Establecimiento::paginate(10);
         return view('establecimientos.index', compact('establecimientos'));
     }

@@ -17,11 +17,17 @@
           
           <div class="text-left">
             <h1 class="font-bold mx-2">Categorías</h1>
+            <form action="{{ route('establecimientos.index',$categoria->id) }}" method="GET">
+                        <x-primary-button>
+                            Filtrar :3
+                        </x-primary-button>
+                        @csrf            
                       <ul>
             @foreach ($categorias as $categoria)
-              <li class=""><input value="{{ $categoria->id }}" type="checkbox" class="mx-2">{{ $categoria->nombre }}</li>
+              <li><input value="{{ $categoria->id }}" name="categoria_filtro" type="checkbox" class="mx-2">{{ $categoria->nombre }}</li>
               @endforeach
-                    </ul>
+              </ul>
+            </form>
           </div>
           <div class="text-left">
             <h1 class="font-bold mx-2">Barrios</h1>
@@ -33,7 +39,11 @@
           </div>
           <div class="text-left">
             <h1 class="font-bold mx-2">Localidades</h1>
-            <form action="">
+            <form action="{{ route('establecimientos.index',$localidad->id) }}" method="GET">
+                        <x-primary-button>
+                            Filtrar :3
+                        </x-primary-button>
+                        @csrf
               <ul>
                 @foreach ($localidades as $localidad)
                 <li class=""><input value="{{ $localidad->id }}" type="checkbox" class="mx-2">{{ $localidad->nombre }}</li>
