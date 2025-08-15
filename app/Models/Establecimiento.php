@@ -40,4 +40,11 @@ class Establecimiento extends Model
             $query->where('categoria_id', $filtro);
         });
     }
+
+    public function scopeByBarrio(Builder $query, $filtro)
+    {
+        return $query->when($filtro, function ($query) use ($filtro) {
+            $query->where('barrio_id', $filtro);
+        });
+    }
 }

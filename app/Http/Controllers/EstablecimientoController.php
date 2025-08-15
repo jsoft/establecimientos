@@ -23,9 +23,14 @@ class EstablecimientoController extends Controller
     public function index(Request $request)
     {
 
-        $filtrocategory = Establecimiento::byCategoria($request->categoria_filtro)->get();
-        $establecimientos = Establecimiento::paginate(10);
-        return view('establecimientos.index', compact('establecimientos'));
+        $establecimientos = Establecimiento::byCategoria($request->categoria_filtro)
+            ->byBarrio($request->barrio_filtro)
+            ->paginate(10);
+
+        $categorias = Categoria::all();
+        $barrios = Barrio::all();
+
+        return view('establecimientos.index', compact('establecimientos', 'categorias', 'barrios'));
     }
 
     /**

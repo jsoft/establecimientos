@@ -17,7 +17,7 @@
           
           <div class="text-left">
             <h1 class="font-bold mx-2">Categorías</h1>
-            <form action="{{ route('establecimientos.index',$categoria->id) }}" method="GET">
+            <form action="{{ route('establecimientos.index') }}" method="GET">
                         <x-primary-button>
                             Filtrar :3
                         </x-primary-button>
@@ -39,7 +39,7 @@
           </div>
           <div class="text-left">
             <h1 class="font-bold mx-2">Localidades</h1>
-            <form action="{{ route('establecimientos.index',$localidad->id) }}" method="GET">
+            <form action="{{ route('establecimientos.index') }}" method="GET">
                         <x-primary-button>
                             Filtrar :3
                         </x-primary-button>
