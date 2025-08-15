@@ -12,6 +12,7 @@ use App\Http\Controllers\FiltroController;
 use App\Http\Controllers\ValoracionController;
 use App\Models\Barrio;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 
 /*
@@ -33,12 +34,16 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('filtors', FiltroController::class);
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function (Request $request) {
+    $establecimientos = \App\Models\Establecimiento::byCategoria($request->categoria_filtro)
+        ->byBarrio($request->barrio_filtro)
+        ->paginate(50);
+
     return view('dashboard', [
         'categorias' => \App\Models\Categoria::all(),
         'barrios' => \App\Models\Barrio::all(),
         'localidades' => \App\Models\Localidad::all(),
-        'establecimientos' => \App\Models\Establecimiento::paginate(50),
+        'establecimientos' => $establecimientos,
     ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 

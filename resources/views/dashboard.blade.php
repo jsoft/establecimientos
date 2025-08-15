@@ -15,9 +15,9 @@
       <div class="grid grid-cols-5 gap-4">
         <aside id="sidebar-principal" class="border border-gray-500  justify-items-start text-center">
           
+          <form action="{{ route('dashboard') }}" method="GET">
           <div class="text-left">
             <h1 class="font-bold mx-2">Categorías</h1>
-            <form action="{{ route('establecimientos.index') }}" method="GET">
                         <x-primary-button>
                             Filtrar :3
                         </x-primary-button>
@@ -27,30 +27,16 @@
               <li><input value="{{ $categoria->id }}" name="categoria_filtro" type="checkbox" class="mx-2">{{ $categoria->nombre }}</li>
               @endforeach
               </ul>
-            </form>
           </div>
           <div class="text-left">
             <h1 class="font-bold mx-2">Barrios</h1>
                       <ul>
             @foreach ($barrios as $barrio)
-              <li class=""><input value="{{ $barrio->id }}" type="checkbox" class="mx-2">{{ $barrio->nombre }}</li>
+              <li class=""><input value="{{ $barrio->id }}" name="barrio_filtro" type="checkbox" class="mx-2">{{ $barrio->nombre }}</li>
               @endforeach
                     </ul>
           </div>
-          <div class="text-left">
-            <h1 class="font-bold mx-2">Localidades</h1>
-            <form action="{{ route('establecimientos.index') }}" method="GET">
-                        <x-primary-button>
-                            Filtrar :3
-                        </x-primary-button>
-                        @csrf
-              <ul>
-                @foreach ($localidades as $localidad)
-                <li class=""><input value="{{ $localidad->id }}" type="checkbox" class="mx-2">{{ $localidad->nombre }}</li>
-                @endforeach
-              </ul>
-            </form>
-          </div>
+        </form>
         </aside>
         <section id="cafeterias-listado" class="border border-gray-500 col-span-4 justify-items-start text-center">
           <h2>Cafeterías Recomendadas</h2>
